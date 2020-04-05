@@ -1,0 +1,23 @@
+[Unit]
+Description=Minecraft Server: %i
+After=network.target
+
+[Service]
+WorkingDirectory=/opt/mc-%i
+
+User=root
+Group=root
+
+Restart=always
+
+ExecStartPre=/bin/bash -c '/bin/echo eula=true > /opt/mc-%i/eula.txt'
+ExecStart=/usr/bin/screen -DmS mc-%i /opt/mc-%i/ServerStart.sh
+
+ExecStop=/usr/bin/screen -p 0 -S mc-%i -X eval 'stuff "say SERVEREN LUKKER OM 5 SEKUNDER."\015'
+ExecStop=/bin/sleep 5
+ExecStop=/usr/bin/screen -p 0 -S mc-%i -X eval 'stuff "save-all"\015'
+ExecStop=/usr/bin/screen -p 0 -S mc-%i -X eval 'stuff "stop"\015'
+
+
+[Install]
+WantedBy=multi-user.target
