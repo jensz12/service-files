@@ -1,0 +1,14 @@
+[Unit]
+Description=The Midnight Bot
+
+[Service]
+ExecStart=/home/jens/midnight-lyrics/bot.js
+Restart=always
+User=jens
+Group=jens
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=/home/jens/midnight-lyrics
+
+[Install]
+WantedBy=multi-user.target
