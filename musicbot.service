@@ -3,7 +3,7 @@ Description=Manage Java service
 
 [Service]
 WorkingDirectory=/home/jens/musicbot
-ExecStart=/bin/java -jar bot.jar
+ExecStart=/bin/java -Dnogui=true -jar bot.jar
 User=jens
 Type=simple
 Restart=on-failure
