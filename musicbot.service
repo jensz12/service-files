@@ -1,5 +1,6 @@
 [Unit]
-Description=Manage Java service
+Description=Musicbot service
+After=network-online.target
 
 [Service]
 WorkingDirectory=/home/jens/musicbot
@@ -11,3 +12,4 @@ RestartSec=10
 
 [Install]
 WantedBy=multi-user.target
+RequiredBy=network-online.target
