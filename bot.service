@@ -1,5 +1,6 @@
 [Unit]
 Description=The Midnight Bot
+After=network-online.target
 
 [Service]
 ExecStart=/home/jens/midnight-lyrics/bot.js
@@ -12,3 +13,4 @@ WorkingDirectory=/home/jens/midnight-lyrics
 
 [Install]
 WantedBy=multi-user.target
+RequiredBy=network-online.target
